@@ -14,7 +14,7 @@ docker build -t dartisan/faas-dart-hello-world .
 docker push dartisan/faas-dart-hello-world
 ```
 
-## Install Image as KNative Service
+## Install Image as Knative service
 
 ```
 kn service create hello \
@@ -23,14 +23,20 @@ kn service create hello \
 --env TARGET=World
 ```
 
-## Monitor Service
+## Monitor the service
 
 ```
 kubectl get pod -l serving.knative.dev/service=hello -w
 ```
 
-## Test Service
+## Test the service
 
 ```
+GET http://hello.default.127.0.0.1.sslip.io
+```
 
+## Delete the service
+
+```
+kn service delete hello
 ```

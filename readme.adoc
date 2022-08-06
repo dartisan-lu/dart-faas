@@ -23,17 +23,23 @@ kn service create hello \
 Rollback: kn service delete hello
 ```
 
-## Some useful commands:
-
-```
-kn service list
-```
+Watch the service:
 
 ```
 kubectl get pod -l serving.knative.dev/service=hello -w
 ```
 
+Test the service
+
 ```
+GET http://hello.default.127.0.0.1.sslip.io
+```
+
+
+## Some useful commands:
+
+```
+kn service list
 kubectl get deployments
 kubectl get pods
 ```
