@@ -1,0 +1,48 @@
+# Dart - FAAS - Serverless
+
+## Introduction
+
+Build on https://knative.dev/ for local testing.
+
+For local development and testing, I followed the instructions of the QuickStart based on Kind (MacOs): https://knative.dev/docs/install/quickstart-install/
+
+Validate the installation with:
+
+```
+kind get clusters
+```
+
+Test with the image build from the project hello-world in the DockerHub Repo: https://hub.docker.com/r/dartisan/faas-dart-hello-world
+
+```
+kn service create hello \
+--image dartisan/faas-dart-hello-world \
+--port 8080 \
+--env TARGET=World
+
+Rollback: kn service delete hello
+```
+
+## Some useful commands:
+
+```
+kn service list
+```
+
+```
+kubectl get pod -l serving.knative.dev/service=hello -w
+```
+
+```
+kubectl get deployments
+kubectl get pods
+```
+
+## Troubleshooting
+
+In case you see:
+```
+(6) Could not resolve host: hello.default.${LOADBALANCER_IP}.sslip.io?
+```
+
+you need to add ~sslip.io to DNS resolver 8.8.8.8 see: https://knative.dev/docs/getting-started/first-autoscale/#access-your-knative-service

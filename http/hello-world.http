@@ -1,0 +1,4 @@
+GET http://hello.default.127.0.0.1.sslip.io
+
+# Cold Start : Response code: 200 (OK); Time: 2020ms (2 s 20 ms); Content length: 36 bytes (36 B)
+# Hot Start  : Response code: 200 (OK); Time: 9ms (9 ms); Content length: 36 bytes (36 B)

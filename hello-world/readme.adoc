@@ -1,0 +1,36 @@
+# Build & Deploy
+
+PS: in case you build it, replace dartisan by your DockerHub Repo.
+
+## Build Image
+
+```
+docker build -t dartisan/faas-dart-hello-world .
+```
+
+## Publish Image
+
+```
+docker push dartisan/faas-dart-hello-world
+```
+
+## Install Image as KNative Service
+
+```
+kn service create hello \
+--image dartisan/faas-dart-hello-world \
+--port 8080 \
+--env TARGET=World
+```
+
+## Monitor Service
+
+```
+kubectl get pod -l serving.knative.dev/service=hello -w
+```
+
+## Test Service
+
+```
+
+```
