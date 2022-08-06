@@ -1,0 +1,7 @@
+POST http://fibonacci.default.127.0.0.1.sslip.io
+Content-Type: application/json
+
+{
+  "url": "http://localhost:8080",
+  "value": 7
+}

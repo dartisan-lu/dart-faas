@@ -1,0 +1,42 @@
+# Build & Deploy
+
+PS: in case you build it, replace dartisan by your DockerHub Repo.
+
+## Build Image
+
+```
+docker build -t dartisan/faas-dart-fibonacci .
+```
+
+## Publish Image
+
+```
+docker push dartisan/faas-dart-fibonacci
+```
+
+## Install Image as Knative service
+
+```
+kn service create fibonacci \
+--image dartisan/faas-dart-fibonacci \
+--port 8080 \
+--env TARGET=World
+```
+
+## Monitor the service
+
+```
+kubectl get pod -l serving.knative.dev/service=fibonacci -w
+```
+
+## Test the service
+
+```
+GET http://fibonacci.default.127.0.0.1.sslip.io
+```
+
+## Delete the service
+
+```
+kn service delete fibonacci
+```
