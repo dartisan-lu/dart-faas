@@ -19,8 +19,6 @@ kn service create hello \
 --image dartisan/faas-dart-hello-world \
 --port 8080 \
 --env TARGET=World
-
-Rollback: kn service delete hello
 ```
 
 Watch the service:
@@ -35,6 +33,10 @@ Test the service
 GET http://hello.default.127.0.0.1.sslip.io
 ```
 
+Remove the service:
+```
+kn service delete hello
+```
 
 ## Some useful commands:
 
